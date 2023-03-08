@@ -3,7 +3,7 @@ import bcrypt from 'bcrypt';
 // give user a webtoken which they can use to authorize
 // themselves
 import jwt from 'jsonwebtoken';
-import User from '../models/user.js';
+import User from '../models/User.js';
 
 // REGISTER USER
 

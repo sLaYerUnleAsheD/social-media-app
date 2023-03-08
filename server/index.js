@@ -11,9 +11,10 @@ import multer from 'multer';
 import path from 'path';
 import { fileURLToPath } from 'url';
 // import authRoutes (for authentication feature for login) 
-// from routes directory where
-// we will have path and routes for every type of feature
-import authRoutes from './routes/auth.js'
+// from routes directory where we will have path
+// and routes for every type of feature
+import authRoutes from './routes/auth.js';
+import userRoutes from './routes/users.js';
 // importing auth.js for registering users
 import { register } from './controllers/auth.js';
 
@@ -61,6 +62,7 @@ app.post("/auth/register", upload.single("picture"), register);
 // ROUTES
 
 app.use("/auth", authRoutes);
+app.use("/users", userRoutes);
 
 // MONGOOSE SETUP
 

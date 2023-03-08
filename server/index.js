@@ -10,6 +10,10 @@ import multer from 'multer';
 // Native packages
 import path from 'path';
 import { fileURLToPath } from 'url';
+// import authRoutes (for authentication feature for login) 
+// from routes directory where
+// we will have path and routes for every type of feature
+import authRoutes from './routes/auth.js'
 // importing auth.js for registering users
 import { register } from './controllers/auth.js';
 
@@ -34,7 +38,8 @@ app.use(cors());
 app.use("/assets", express.static(path.join(__dirname, "public/assets")));
 
 // FILE STORAGE
-// whenever someone uploads a file it is gonne be stored in public/assets
+
+// whenever someone uploads a file it is gonna be stored in public/assets
 const storage = multer.diskStorage({
     destination: function(req, file, cb) {
         cb(null, "public/assets");
@@ -48,11 +53,17 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 // ROUTES WITH FILES
+
 // `upload.single` in below line is a middleware which uploads an image locally
 // to the destination we mentioned above
-app.post("/auth/register", upload.single("picture"), register)
+app.post("/auth/register", upload.single("picture"), register);
+
+// ROUTES
+
+app.use("/auth", authRoutes);
 
 // MONGOOSE SETUP
+
 // if our dedicated port in .env file fails then use 6001
 const PORT = process.env.PORT || 6001;
 mongoose.connect(process.env.MONGO_URL, {

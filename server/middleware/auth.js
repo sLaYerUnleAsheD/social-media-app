@@ -14,7 +14,7 @@ export const verifyToken = async (req, res, next) => {
         // we want token to be started with Bearer from the frontend
         // and we store everthing from the right side of it inside the token
         // by slicing from 7 till end and trimming the left part.
-        if(token.statsWith("Bearer ")){
+        if(token.startsWith("Bearer ")){
             token = token.slice(7, token.length).trimLeft();
         }
 

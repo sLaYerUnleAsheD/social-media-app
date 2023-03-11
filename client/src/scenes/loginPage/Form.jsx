@@ -148,7 +148,7 @@ const Form = () => {
                     <Box
                         display="grid"
                         gap="30px"
-                        gridTemplatecolums="repeat(4, minmax(0, 1fr))"
+                        gridTemplateColumns="repeat(4, minmax(0, 1fr))"
                         sx={{
                             /* if app is on mobile screen then all fields will take entire
                             screen for them as a span of 4 */

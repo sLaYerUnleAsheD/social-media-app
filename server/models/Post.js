@@ -17,7 +17,7 @@ const postSchema = mongoose.Schema(
         location: String,
         description: String,
         picturePath: String,
-        userpicturePath: String,
+        userPicturePath: String,
         // below: check if user id exists in this map
         // if it exists the value `of` will be true
         // otherwise false
